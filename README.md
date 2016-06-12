@@ -1,4 +1,4 @@
-# errprops [![GoDoc](https://godoc.org/github.com/zach-klippenstein/errprops?status.svg)](https://godoc.org/github.com/zach-klippenstein/errprops)
+# errprops [![Build Status](https://travis-ci.org/zach-klippenstein/errprops.svg?branch=master)](https://travis-ci.org/zach-klippenstein/errprops) [![GoDoc](https://godoc.org/github.com/zach-klippenstein/errprops?status.svg)](https://godoc.org/github.com/zach-klippenstein/errprops)
 
 errprops provides a fluent API for setting and querying key/value pairs on errors.
 

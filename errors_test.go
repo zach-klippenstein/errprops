@@ -57,15 +57,15 @@ func Example_overriding() {
 
 func Example_format() {
 	type state struct {
-		Url       string
-		StartTime time.Time
+		Url      string
+		Duration time.Duration
 	}
 
 	err := From(io.EOF).
 		WithValue("filename", "/tmp/stuff").
 		WithValue("state", state{
 		"https://example.com",
-		time.Date(2016, 06, 12, 9, 47, 16, 0, time.UTC),
+		2 * time.Second,
 	})
 
 	fmt.Printf("%v\n", err)
@@ -73,9 +73,9 @@ func Example_format() {
 	fmt.Printf("%#v\n", err)
 
 	// Output:
-	// [state={https://example.com 2016-06-12 09:47:16 +0000 UTC},filename=/tmp/stuff] EOF
-	// [state={Url:https://example.com StartTime:2016-06-12 09:47:16 +0000 UTC},filename=/tmp/stuff] EOF
-	// ["state"=errprops.state{Url:"https://example.com", StartTime:time.Time{sec:63601321636, nsec:0, loc:(*time.Location)(0x5c82e0)}},"filename"="/tmp/stuff"] EOF
+	// [state={https://example.com 2s},filename=/tmp/stuff] EOF
+	// [state={Url:https://example.com Duration:2s},filename=/tmp/stuff] EOF
+	// ["state"=errprops.state{Url:"https://example.com", Duration:2000000000},"filename"="/tmp/stuff"] EOF
 }
 
 func TestFrom(t *testing.T) {
